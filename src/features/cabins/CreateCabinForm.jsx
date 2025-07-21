@@ -28,7 +28,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
     if (isEditSession)
       editCabin(
-        { newCabinData: { ...data, image }, editId },
+        { newCabinData: { ...data, image }, id: editId },
         {
           onSuccess: (data) => reset(),
         }

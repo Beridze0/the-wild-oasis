@@ -5,12 +5,14 @@ import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
 import { MdOutlineSportsVolleyball } from "react-icons/md";
+import Empty from "../../ui/Empty";
 
 export default function CabinTable() {
   const { isLoading, cabins, error } = useCabins();
   const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resource="bookings" />;
 
   // 1. Filter
   const filterValue = searchParams.get("discount") || "all";
